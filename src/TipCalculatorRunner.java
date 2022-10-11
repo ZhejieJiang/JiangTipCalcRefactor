@@ -1,12 +1,12 @@
 //Imports
 import java.util.Scanner; //For Scanners
-import java.text.DecimalFormat;
+import java.text.DecimalFormat;//Rounding
 
 public class TipCalculatorRunner
 {
     public static void main(String[]args)
     {
-
+        //inputed variables
         DecimalFormat df = new DecimalFormat( "#.##" );
         Scanner scan = new Scanner(System.in);
         System.out.print("How many people are in your group? ");
@@ -16,6 +16,7 @@ public class TipCalculatorRunner
         System.out.print("What is your bill? ");
         double c = scan.nextDouble();
 
+
         TipCalculator main = new TipCalculator(a,b);
         main.addMeal(c);
 
@@ -24,11 +25,11 @@ public class TipCalculatorRunner
         System.out.println();
         System.out.println("Total bill before Tip: " + main.getTotalBillBeforeTip());
         System.out.println("Tip Percentage: " + main.getTipPercentage());
-        System.out.println("Total Tip: " + main.tipAmount());
-        System.out.println("The total per person before tip is: "+ main.perPersonCostBeforeTip());
-        System.out.println("The total bill including Tip amount is $" + main.totalBill());
-        System.out.println("The total tip amount is $" + main.tipAmount());
-        System.out.println("The total bill including Tip per person is $" + main.perPersonTotalCost());
-        System.out.println("The total tip per person is $" + main.perPersonTipAmount());
+        System.out.println("Total Tip: " + df.format(main.tipAmount()));
+        System.out.println("The total per person before tip is: " + df.format(main.perPersonCostBeforeTip()));
+        System.out.println("The total bill including Tip amount is $" + df.format(main.totalBill()));
+        System.out.println("The total tip amount is $" + df.format(main.tipAmount()));
+        System.out.println("The total bill including Tip per person is $" + df.format(main.perPersonTotalCost()));
+        System.out.println("The total tip per person is $" + df.format(main.perPersonTipAmount()));
     }
 }

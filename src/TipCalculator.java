@@ -1,10 +1,7 @@
-import java.text.DecimalFormat;
 public class TipCalculator {
     private int numPeople;
     private int tipPercentage;
     private double totalBillBeforeTip;
-    DecimalFormat df = new DecimalFormat( "#.##" );
-
     public TipCalculator(int people, int tip){
         tipPercentage = tip;
         numPeople = people;
