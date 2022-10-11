@@ -1,8 +1,9 @@
-import java.lang.Math;
+import java.text.DecimalFormat;
 public class TipCalculator {
     private int numPeople;
     private int tipPercentage;
     private double totalBillBeforeTip;
+    DecimalFormat df = new DecimalFormat( "#.##" );
 
     public TipCalculator(int people, int tip){
         tipPercentage = tip;
@@ -22,7 +23,7 @@ public class TipCalculator {
     } //method that increments totalBillBeforeTip by cost and returns no value
 
     public double tipAmount(){
-        return Math.round((totalBillBeforeTip * tipPercentage)*100)/100;
+        return (totalBillBeforeTip * (tipPercentage/100.0));
     } //method that calculates and returns a double representing the total tip amount added to the bill
 
     public double totalBill(){
@@ -30,14 +31,14 @@ public class TipCalculator {
     } //method that calculates and returns a double representing the group’s total bill including tip
 
     public double perPersonCostBeforeTip(){
-        return Math.round((totalBillBeforeTip/numPeople)*100)/100;
-    } //method that calculates and returns a double representing the per person cost before tip
+        return ((totalBillBeforeTip/numPeople));
+    } //method that calculates and returns a double representing the per-person cost before tip
 
     public double perPersonTipAmount(){
-        return Math.round((tipAmount()/numPeople)*100)/100;
-    } //method that calculates and returns a double representing the per person tip amount
+        return (tipAmount()/numPeople);
+    } //method that calculates and returns a double representing the per-person tip amount
 
     public double perPersonTotalCost(){
-        return Math.round((totalBill()/numPeople)*100)/100;
+        return ((totalBill()/numPeople));
     } //method that calculates and returns a double representing the total cost per person
 }
